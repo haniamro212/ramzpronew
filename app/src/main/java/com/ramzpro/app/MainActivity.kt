@@ -72,7 +72,7 @@ private fun Dashboard() {
             val candles = api.getCandles(selectedSymbol, "4h", 500)
             candles.onSuccess { candleCount = it.dropLast(1).size }
             message = if (prices.isNotEmpty()) {
-                "تم تحديث \${prices.size} من \${trackedCoins.size} عملات • بيانات قراءة فقط"
+                "تم تحديث ${prices.size} من ${trackedCoins.size} عملات • بيانات قراءة فقط"
             } else {
                 "تعذر الاتصال بـ Binance؛ تحقق من الإنترنت"
             }
@@ -151,7 +151,7 @@ private fun Dashboard() {
                 Column(Modifier.fillMaxWidth().padding(16.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     Text("بيانات التحليل", color = Color.White, fontWeight = FontWeight.Bold)
-                    Text("عدد الشموع المكتملة: \${if (candleCount > 0) candleCount else "—"}", color = Muted)
+                    Text("عدد الشموع المكتملة: ${if (candleCount > 0) candleCount else "—"}", color = Muted)
                     Text("الإطار الزمني: 4 ساعات", color = Muted)
                     Text("الإشارات والتحليل الفني قيد التطوير", color = Green, fontSize = 12.sp)
                     Text("قراءة فقط • لا توجد أوامر تداول حقيقية", color = Muted, fontSize = 12.sp)
